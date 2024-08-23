@@ -1,0 +1,10 @@
+{
+  "build": {
+    "env": {
+      "VERCEL_BUILDER": "pnpm"
+    }
+  },
+  "github": {
+    "silent": true
+  }
+}

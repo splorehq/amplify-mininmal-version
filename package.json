@@ -1,0 +1,26 @@
+{
+  "name": "consumer-app",
+  "version": "2.6.1",
+  "private": true,
+  "engines": {
+    "node": ">=18.16.1"
+  },
+  "volta": {
+    "node": "18.16.1"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test-build": "turbo run test-build",
+    "test": "turbo run test",
+    "prepare": "husky install",
+    "lint": "prettier --plugin-search-dir . --check . && eslint . && next lint",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "husky": "^8.0.3"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.3.0"
+  }
+}

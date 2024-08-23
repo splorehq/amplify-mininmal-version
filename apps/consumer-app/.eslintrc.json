@@ -1,0 +1,200 @@
+{
+	"env": {
+		"browser": true,
+		"jest": true,
+		"node": true
+	},
+	"extends": [
+		"airbnb-base",
+		"eslint:recommended",
+		"next",
+		"prettier",
+		"plugin:@typescript-eslint/recommended-type-checked",
+		"plugin:compat/recommended",
+		"plugin:import/recommended",
+		"plugin:import/typescript",
+		"plugin:unicorn/recommended",
+		"plugin:storybook/recommended",
+		"plugin:testing-library/react",
+		"plugin:jest-dom/recommended"
+	],
+	"overrides": [
+		{
+			"files": ["*.stories.{jsx,tsx}"],
+			"rules": {
+				"immutable/no-mutation": "off"
+			}
+		},
+		{
+			"extends": ["plugin:@typescript-eslint/disable-type-checked"],
+			"files": ["*.config.{cjs,js,ts}"],
+			"rules": {
+				"@typescript-eslint/no-var-requires": "off",
+				"global-require": "off",
+				"immutable/no-mutation": "off",
+				"import/no-extraneous-dependencies": "off",
+				"unicorn/no-empty-file": "off",
+				"unicorn/prefer-module": "off"
+			}
+		}
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": true,
+		"tsconfigRootDir": "."
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"immutable",
+		"import",
+		"jest-dom",
+		"testing-library",
+		"unicorn"
+	],
+	"root": true,
+	"rules": {
+		"@typescript-eslint/ban-ts-comment": "off",
+		"@typescript-eslint/consistent-type-exports": "error",
+		"@typescript-eslint/consistent-type-imports": "error",
+		"@typescript-eslint/no-floating-promises": ["error", { "ignoreVoid": true }],
+		"@typescript-eslint/no-import-type-side-effects": "error",
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{ "checksVoidReturn": { "attributes": false } }
+		],
+		"@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/unbound-method": "off",
+		"block-scoped-var": "error",
+		"consistent-return": "off",
+		"dot-notation": "error",
+		"eqeqeq": "error",
+		"guard-for-in": "error",
+		"immutable/no-this": "error",
+		"import/consistent-type-specifier-style": "error",
+		"import/extensions": "off",
+		"import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+		"import/no-unresolved": "error",
+		"import/order": [
+			"error",
+			{
+				"alphabetize": { "caseInsensitive": true, "order": "asc", "orderImportKind": "asc" },
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"unknown",
+					"parent",
+					"sibling",
+					"index",
+					"object",
+					"type"
+				],
+				"newlines-between": "always-and-inside-groups",
+				"pathGroups": [
+					{
+						"pattern": "@/**",
+						"group": "internal"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["builtin"],
+				"warnOnUnassignedImports": true
+			}
+		],
+		"import/prefer-default-export": "off",
+		"linebreak-style": ["error", "unix"],
+		"max-depth": ["error", 5],
+		"max-nested-callbacks": ["error", 3],
+		"max-params": ["error", 5],
+		"new-cap": "error",
+		"no-bitwise": "error",
+		"no-caller": "error",
+		"no-eval": "error",
+		"no-extend-native": "error",
+		"no-iterator": "error",
+		"no-loop-func": "error",
+		"no-multi-str": "error",
+		"no-new": "error",
+		"no-param-reassign": "error",
+		"no-plusplus": "error",
+		"no-proto": "error",
+		"no-restricted-imports": [
+			"error",
+			{
+				"paths": [
+					{
+						"name": "react",
+						"importNames": ["default"],
+						"message": "Please use `import { foo } from 'react'` instead"
+					}
+				]
+			}
+		],
+		"no-restricted-syntax": "off",
+		"no-script-url": "error",
+		"no-shadow": [
+			"error",
+			{
+				"hoist": "all",
+				"allow": ["event"]
+			}
+		],
+		"no-undef": "error",
+		"no-underscore-dangle": "off",
+		// HACK: https://stackoverflow.com/questions/57802057/eslint-configuring-no-unused-vars-for-typescript
+		"no-unused-vars": "off",
+		"no-use-before-define": "error",
+		"no-var": "error",
+		"no-void": ["error", { "allowAsStatement": true }],
+		"no-empty": ["error", { "allowEmptyCatch": true }],
+		"strict": ["error", "never"],
+		"settings": {
+			"import/parsers": { "@typescript-eslint/parser": [".ts"] },
+			"import/resolver": {
+				"typescript": { "alwaysTryTypes": true }
+			}
+		},
+		"testing-library/no-node-access": "off",
+		"unicorn/filename-case": [
+			"error",
+			{
+				"case": "kebabCase",
+				"ignore": ["\\.(j|t)sx$", "\\.stories\\.(j|t)s$"]
+			}
+		],
+		"unicorn/prevent-abbreviations": [
+			"error",
+			{
+				"replacements": {
+					"args": false,
+					"attr": false,
+					"attrs": false,
+					"dev": false,
+					"doc": false,
+					"env": false,
+					"param": false,
+					"params": false,
+					"pkg": false,
+					"prev": false,
+					"props": false,
+					"ref": false,
+					"refs": false,
+					"src": false,
+					"temp": false
+				}
+			}
+		],
+		"unicorn/template-indent": [
+			"error",
+			{
+				"indent": "\t"
+			}
+		],
+		"unicorn/no-array-reduce": "off",
+		"unicorn/no-negated-condition": "off",
+		"unicorn/prefer-query-selector": "off",
+		"unicorn/prefer-at": "off",
+		"unicorn/prefer-spread": "off",
+		"unicorn/prefer-dom-node-text-content": "off",
+		"wrap-iife": "error"
+	}
+}
